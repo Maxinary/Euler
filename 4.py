@@ -6,10 +6,14 @@ def palindrome(a):
 	return True
 
 largest = 0
+minim = 100
 for i in range(999, 100, -1):
-	for j in range(999, 100, -1):
-		if(palindrome(i*j) and i*j>largest):
-			largest = i*j
+	if i>minim:
+		for j in range(999, minim, -1):
+			if(palindrome(i*j) and i*j>largest):
+				largest = i*j
+				minim = min([i,j])
+				break
 	if(i%10==0):
 		print(i)
 print("BIG:", largest)
